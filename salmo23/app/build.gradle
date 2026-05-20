@@ -1,0 +1,195 @@
+apply plugin: 'com.android.application'
+
+android {
+ namespace 'com.appsc.salmo23'
+    //the compression of webp file during build causes problem with FileDescriptor in ContentProvider.
+    aaptOptions {
+        noCompress "webp"
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    
+    defaultConfig {
+        compileSdkVersion 35
+        multiDexEnabled true
+        applicationId "com.appsc.salmo23"
+        minSdkVersion 23
+        targetSdkVersion 35
+
+        versionCode 9
+        versionName "1.8"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        def contentProviderAuthority1 = applicationId + ".stickercontentprovider"
+        def contentProviderAuthority2 = applicationId + ".othercontentprovider"
+        manifestPlaceholders = [
+                contentProviderAuthority1: contentProviderAuthority1,
+                contentProviderAuthority2: contentProviderAuthority2
+        ]
+        buildConfigField("String", "CONTENT_PROVIDER_AUTHORITY1", "\"${contentProviderAuthority1}\"")
+        buildConfigField("String", "CONTENT_PROVIDER_AUTHORITY2", "\"${contentProviderAuthority2}\"")
+    }
+    signingConfigs {
+        release {
+            storeFile file("C:/Users/ADM/Desktop/APP/oracoesspoderosas.jks")
+            storePassword "lucianolindocroy"
+            keyAlias "luciano croy"
+            keyPassword "lucianolindocroy"
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${applicationId}.apk"
+                }
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+task checkDebug {
+    doLast {
+        println("checkDebug")
+        if (android.defaultConfig.applicationId.startsWith("com.whatsapp")) {
+            throw new GradleException("applicationId in defaultConfig cannot start with com.whatsapp, please change your applicationId in app/build.gradle");
+        }
+        checkApplicationIdInDebug()
+    }
+}
+
+private void checkApplicationIdInDebug() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def ignoreApplicationIdCheck = properties.getProperty('ignoreApplicationIdCheck')
+    if (ignoreApplicationIdCheck == null) {
+        if (android.defaultConfig.applicationId.equals("com.appsc.com.appsc.oracaodameianoite")) {
+            //ver depois    throw new GradleException("Your applicationId is currently com.appsc.figurinhasmemeschaves, please change your applicationId to a different string in app/build.gradle in line 16");
+        }
+    } else {
+        println("application id check ignored")
+    }
+}
+
+
+task checkRelease {
+    doLast {
+        println("checkRelease")
+        if (android.defaultConfig.applicationId.startsWith("com.example")) {
+            throw new GradleException("applicationId in defaultConfig cannot start with com.example, please change your applicationId in app/build.gradle");
+        }
+    }
+}
+
+tasks.whenTaskAdded { task ->
+    println(task.name)
+    if (task.name.contains("assembleDebug")) {
+        task.dependsOn checkDebug
+    }
+    if (task.name.contains("assembleRelease")) {
+        task.dependsOn checkRelease
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'androidx.viewpager2:viewpager2:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+
+    implementation 'com.google.firebase:firebase-auth:21.0.7'
+    implementation 'com.google.firebase:firebase-core:21.1.0'
+    implementation platform('com.google.firebase:firebase-bom:30.3.2')
+    //implementation("com.google.firebase:firebase-inappmessaging-display")
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging:23.0.7'
+
+
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+    implementation 'com.google.android.gms:play-services-ads:25.2.0'
+    implementation 'com.google.android.ump:user-messaging-platform:2.1.0'
+    def lifecycle_version = '2.3.1'
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation "androidx.work:work-runtime:2.8.0-alpha04"
+    implementation 'com.google.android.ump:user-messaging-platform:4.0.0'
+
+
+
+
+
+    def fresco_version = '3.6.0'
+    implementation "com.facebook.fresco:fresco:$fresco_version"
+    implementation "com.facebook.fresco:webpsupport:$fresco_version"
+    implementation "com.facebook.fresco:animated-webp:$fresco_version"
+    implementation "com.facebook.fresco:animated-base:$fresco_version"
+    implementation 'com.facebook.conceal:conceal:2.1.1'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.versionedparcelable:versionedparcelable:1.1.0"
+    implementation 'org.apache.commons:commons-lang3:3.4'
+
+/*NOVOS*/
+
+
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation('io.github.sangcomz:fishbun:0.11.4') {
+        exclude group: 'com.github.bumptech.glide', module: 'glide'
+    }
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.orhanobut:hawk:2.0.1'
+    implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+    constraints.implementation 'androidx.fragment:fragment:1.3.6'
+    implementation 'com.android.billingclient:billing:8.3.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'androidx.exifinterface:exifinterface:1.3.6'
+    //background remover
+    implementation 'com.github.duanhong169:checkerboarddrawable:1.0.2'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+    implementation 'com.alexvasilkov:gesture-views:2.5.2'
+    implementation 'com.github.apl-devs:appintro:v4.2.3'
+    implementation 'com.github.jkwiecien:EasyImage:1.3.1'
+    implementation 'com.github.florent37:depth:1.0.0'
+}
+configurations.all {
+    exclude group: 'com.facebook.conceal'
+    exclude group: 'com.google.android.gms', module:'play-services-safetynet'
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'com.facebook.soloader') {
+            details.useVersion "0.10.5"
+        }
+    }
+}
+apply plugin: 'com.google.gms.google-services'

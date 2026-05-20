@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+  <!-- Círculo azul claro -->
+  <path
+      android:fillColor="#F5FBFF"
+      android:strokeColor="#A9D8FF"
+      android:strokeWidth="1.8"
+      android:pathData="M32,4
+                          A28,28 0 1,1 31.9,4Z"/>
+
+  <!-- Barra esquerda -->
+  <path
+      android:fillColor="#45A8FF"
+      android:pathData="M24,20
+                          H30
+                          V44
+                          H24Z"/>
+
+  <!-- Barra direita -->
+  <path
+      android:fillColor="#45A8FF"
+      android:pathData="M34,20
+                          H40
+                          V44
+                          H34Z"/>
+
+</vector>

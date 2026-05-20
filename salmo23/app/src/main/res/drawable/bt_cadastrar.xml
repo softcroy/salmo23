@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/colorRipple"
+    tools:targetApi="lollipop">
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="8dp" /> <!-- aqui você define o arredondamento -->
+            <stroke
+                android:width="2dp"
+                android:color="@android:color/white" />
+            <solid android:color="@color/colorPrimary" />
+        </shape>
+    </item>
+
+</ripple>

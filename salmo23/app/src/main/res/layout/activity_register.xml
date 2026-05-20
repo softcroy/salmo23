@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rel1"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:background="#35AEFF"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tvTitleRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="16dp"
+                android:text="Olá! Qual é o seu nome?"
+                android:scrollbarSize="30sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/etNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dialog_cadastro1"
+                android:hint="Digite seu nome"
+                android:padding="12dp"
+                android:inputType="textPersonName"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ çÇáÁéÉíÍóÓúÚâÂêÊôÔãÃõÕàÀèÈìÌòÒùÙ "/>
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_gravity="center"
+                android:layout_width="150sp"
+                android:layout_height="40sp"
+                android:layout_marginTop="24dp"
+                android:text="Cadastrar"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:background="@drawable/bt_cadastrar"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/nuvem"
+        android:orientation="vertical" />
+</RelativeLayout>

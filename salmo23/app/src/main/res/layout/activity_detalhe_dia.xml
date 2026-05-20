@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ========================= -->
+    <!-- TOPO -->
+    <!-- ========================= -->
+
+    <RelativeLayout
+        android:id="@+id/topo"
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+
+        <!-- FUNDO -->
+        <ImageView
+            android:id="@+id/imgTopoDetalhe"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:scaleType="matrix"
+            android:src="@drawable/img_maria" />
+
+    </RelativeLayout>
+
+    <!-- ========================= -->
+    <!-- CONTEÚDO -->
+    <!-- ========================= -->
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollConteudo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topo"
+        android:layout_above="@id/area_inferior"
+
+        android:layout_marginTop="-30dp"
+        android:paddingTop="30dp"
+
+        android:background="@drawable/rounded_top_bg"
+        android:clipToPadding="true"
+        android:clipChildren="true"
+
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+
+        android:scrollbars="none"
+        android:elevation="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- CARD PRINCIPAL -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="28dp">
+
+                <!-- TÍTULO DIA -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="60dp"
+                        android:layout_height="2dp"
+                        android:background="#DDB04D" />
+
+                    <TextView
+                        android:id="@+id/txtTituloDiaDetalhe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="14dp"
+                        android:fontFamily="serif"
+                        android:text="Dia 1"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="60dp"
+                        android:layout_height="2dp"
+                        android:background="#DDB04D" />
+
+                </LinearLayout>
+
+                <!-- TEXTO -->
+                <TextView
+                    android:id="@+id/txtOracaoDiaDetalhe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:lineSpacingExtra="11dp"
+                    android:text="Oração do 1º Dia: Santíssima Virgem..."
+                    android:textColor="#2A2A2A"
+                    android:textSize="17sp" />
+
+                <!-- DIVISOR -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="45dp"
+                        android:layout_height="1dp"
+                        android:background="#E0C37A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="12dp"
+                        android:text="✦"
+                        android:textColor="#DDB04D"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="45dp"
+                        android:layout_height="1dp"
+                        android:background="#E0C37A" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ORAÇÕES EXTRAS -->
+            <LinearLayout
+                android:id="@+id/containerOracoesExtras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:paddingBottom="20dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ========================= -->
+    <!-- ÁREA INFERIOR -->
+    <!-- ========================= -->
+
+    <LinearLayout
+        android:id="@+id/area_inferior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="#FAFDFF"
+        android:elevation="12dp">
+
+        <!-- BOTÃO -->
+        <RelativeLayout
+            android:id="@+id/botao"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="#FAFDFF">
+
+            <Button
+                android:id="@+id/btnConcluirDia"
+                android:layout_width="140sp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_button_blue"
+                android:fontFamily="@font/google"
+                android:text="concluir dia"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <!-- BANNER -->
+        <LinearLayout
+            android:id="@+id/tela_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FAFDFF">
+
+            <FrameLayout
+                android:id="@+id/ad_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

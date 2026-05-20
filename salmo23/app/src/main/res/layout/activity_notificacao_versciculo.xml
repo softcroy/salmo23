@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="360dp">
+
+                <ImageView
+                    android:id="@+id/imgNovenaHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#73000000"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <ImageButton
+                        android:id="@+id/fechar"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/bg_circle_dark"
+                        android:contentDescription="Fechar"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_close"
+                        app:tint="#FFFFFF" />
+
+                    <FrameLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/bg_circle_dark">
+
+                        <ImageView
+                            android:id="@+id/imgMusicalNote"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Música"
+                            android:src="@drawable/musical_note"
+                            app:tint="#FFFFFF" />
+
+                        <ToggleButton
+                            android:id="@+id/tgMusic"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:textOff=""
+                            android:textOn="" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/txtVersiculo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/gold1"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:typeface="serif"
+                        android:textSize="20sp"
+                        android:textStyle="normal"
+                        tools:ignore="MissingClass"
+                        android:layout_centerInParent="true"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true">
+
+                        <ImageButton
+                            android:id="@+id/copiar"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/bg_circle_dark"
+                            android:contentDescription="Copiar"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_copy"
+                            app:tint="#FFFFFF" />
+
+                        <ImageButton
+                            android:id="@+id/compartilhar"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_circle_dark"
+                            android:contentDescription="Compartilhar"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_share"
+                            app:tint="#FFFFFF" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-28dp"
+                android:background="@drawable/rounded_top_bg"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:padding="26dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Oração"
+                    android:textColor="#222222"
+                    android:fontFamily="@font/google"
+                    android:textSize="28sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/divider"
+                        android:layout_gravity="bottom"
+                        android:scaleY="-1"/>
+
+                    <TextView
+                        android:id="@+id/ir_para_versciculo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:text="Provérbios 16:3"
+                        android:layout_gravity="center"
+                        android:textColor="#8D6E00"
+                        android:fontFamily="@font/google"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/divider"
+                        android:layout_gravity="bottom"
+                        android:scaleX="-1"
+                        android:scaleY="-1"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtHistoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/gold1"
+                    android:textStyle="normal"
+                    android:gravity="center"
+                    android:lineSpacingExtra="10dp"
+                    android:text="Deus misericordioso, entrego meus planos e meu trabalho a Ti..."
+                    android:textColor="#737373"
+                    android:textSize="22sp"/>
+
+                <Button
+                    android:id="@+id/btnAmen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bt_dialog_amen"
+                    android:fontFamily="@font/google"
+                    android:layout_gravity="center"
+                    android:text="Amém"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    app:cornerRadius="18dp"
+                    android:elevation="10sp"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/ad_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

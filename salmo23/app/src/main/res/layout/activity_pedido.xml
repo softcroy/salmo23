@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootPedido"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/tela_no_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="empty_box.json"
+                    app:lottie_loop="false" />
+
+                <TextView
+                    android:id="@+id/text_favorito"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/animation_view"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/google"
+                    android:gravity="center"
+                    android:text="Você ainda não tem pedidos de oração!"
+                    android:textAlignment="center"
+                    android:textSize="14dp" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:clipToPadding="false"
+                android:paddingBottom="8dp" />
+        </RelativeLayout>
+
+        <!-- RecyclerView para listar todos os pedidos -->
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Separador visual opcional -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginVertical="8dp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp" />
+
+    <!-- Input de texto para novo pedido -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/etPedido"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/bg_dialog_cadastro"
+            android:hint="Digite seu pedido de oração"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:gravity="center_vertical"
+            android:inputType="text" />
+
+        <ImageView
+            android:id="@+id/btnEnviarPedido"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bt_dialog_positive"
+            android:src="@drawable/send_pedido"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:padding="8dp" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

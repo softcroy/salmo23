@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <!-- BORDA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borda_gold_moderna1"
+            android:orientation="vertical">
+
+            <!-- TOPO -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_gold_circle_light"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_vela"
+                        app:tint="#DDB04D" />
+
+                    <TextView
+                        android:id="@+id/txtNomeExtra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:text="Oração Pai Nosso"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif" />
+
+                </LinearLayout>
+
+                <ToggleButton
+                    android:id="@+id/btnToggleAudioExtra"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/selector_audio_toggle"
+                    android:textOff=""
+                    android:textOn="" />
+
+            </RelativeLayout>
+
+            <!-- TEXTO -->
+            <TextView
+                android:id="@+id/txtTextoExtra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="serif"
+                android:lineSpacingExtra="10dp"
+                android:text="Pai nosso que estais nos céus..."
+                android:textColor="#333333"
+                android:textSize="17sp" />
+
+            <!-- RODAPÉ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="1dp"
+                    android:background="#E2C26A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="✧"
+                    android:textColor="#DDB04D"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="1dp"
+                    android:background="#E2C26A" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

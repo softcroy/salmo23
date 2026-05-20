@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4FAFF">
+
+    <LinearLayout
+        android:id="@+id/tela_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <FrameLayout
+            android:id="@+id/ad_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tela_banner"
+        android:fillViewport="true"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="340dp">
+
+                <ImageView
+                    android:id="@+id/imgProgressoHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#25000000" />
+
+                <FrameLayout
+                    android:id="@+id/previewCandleContainer"
+                    android:layout_width="120dp"
+                    android:layout_height="220dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginBottom="55dp"
+                    android:elevation="12dp">
+
+                    <ImageView
+                        android:id="@+id/dialog_flame"
+                        android:layout_width="72dp"
+                        android:layout_height="170dp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:elevation="3dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_candle_flame"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/dialog_wick"
+                        android:layout_width="72dp"
+                        android:layout_height="170dp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:elevation="2dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_candle_wick"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/dialog_candle"
+                        android:layout_width="72dp"
+                        android:layout_height="170dp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:elevation="1dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_candle_body"
+                        android:visibility="gone"/>
+                </FrameLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-55dp"
+                android:background="@drawable/bg_main_card"
+                android:elevation="10dp"
+                android:orientation="vertical"
+                android:paddingStart="22dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="22dp"
+                android:paddingBottom="30dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtNomeNovenaAtiva"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nossa Senhora de Fátima"
+                            android:textColor="#1A1A1A"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Continue sua caminhada espiritual"
+                            android:textColor="#7B8A97"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/containerCircular"
+                        android:layout_width="74dp"
+                        android:layout_height="74dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/bg_progress_circle"
+                        android:elevation="6dp"
+                        android:gravity="center">
+
+                        <FrameLayout
+                            android:layout_width="58dp"
+                            android:layout_height="58dp">
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/circularProgressBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:cpb_background_progressbar_color="#E7F4FF"
+                                app:cpb_background_progressbar_width="5dp"
+                                app:cpb_progress_max="9"
+                                app:cpb_progressbar_color="#3BA8FF"
+                                app:cpb_progressbar_width="5dp" />
+
+                            <TextView
+                                android:id="@+id/txtProgressoFracao"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="1/9"
+                                android:textColor="#1F2C37"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieConcluido"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="gone"
+                                app:lottie_autoPlay="true"
+                                app:lottie_fileName="concluido.json"
+                                app:lottie_loop="true" />
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/bg_status_card"
+                    android:elevation="10dp"
+                    android:orientation="horizontal"
+                    android:paddingVertical="22dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_calendar" />
+
+                            <TextView
+                                android:id="@+id/statDia"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Dia de reza"
+                            android:textColor="#7A7A7A"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="#E6EEF5" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_book" />
+
+                            <TextView
+                                android:id="@+id/statLeitura"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Leitura"
+                            android:textColor="#7A7A7A"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="#E6EEF5" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_progress" />
+
+                            <TextView
+                                android:id="@+id/statPorcentagem"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Progresso"
+                            android:textColor="#7A7A7A"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/bg_glass_card"
+                    android:elevation="10dp"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:id="@+id/containerTexto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/iconIntencao"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_pray"
+                                app:tint="#5E6572" />
+
+                            <TextView
+                                android:id="@+id/txtHistoriaResumo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Sua intenção..."
+                                android:textColor="#5E6572"
+                                android:textSize="12sp"
+                                android:textStyle="italic" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:background="@drawable/bg_reminder"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="8dp">
+
+                            <ImageView
+                                android:id="@+id/iconAlarme"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_alarm"/>
+
+                            <TextView
+                                android:id="@+id/txtHoraLembrete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Lembrete diário às 21:00h"
+                                android:textColor="#3BA8FF"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btnEditarTudo"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_edit_circle"
+                        android:elevation="3dp"
+                        android:padding="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_edit"/>
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerDiasAtivos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

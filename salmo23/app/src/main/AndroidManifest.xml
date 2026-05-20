@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.appsc.salmo23">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!--TIRAMISSU-->
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
+
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:launchMode="singleTask"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name="com.appsc.salmo23.MyApplication"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic= "true"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3882038212063780~8545708695"/>
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent"
+            android:exported="false" />
+
+        <activity android:name="com.appsc.salmo23.login.SplashActivity"
+            android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".biblia.ReadingActivity" />
+        <activity android:name=".biblia.favorito.FavoritosActivity" />
+        <activity android:name=".Assinatura" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.appsc.salmo23.Principal_Oracao"       android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.appsc.salmo23.login.RegisterActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.appsc.salmo23.figurinhas.EntryActivity"/>
+
+        <activity
+            android:name="com.appsc.salmo23.figurinhas.StickerPackDetailsActivity"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appsc.salmo23.Principal_Oracao" />
+        </activity>
+
+        <activity
+            android:name="com.appsc.salmo23.figurinhas.StickerPackInfoActivity"
+            android:label="@string/title_activity_sticker_pack_info"
+            android:parentActivityName="com.appsc.salmo23.figurinhas.StickerPackDetailsActivity"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appsc.salmo23.figurinhas.StickerPackDetailsActivity" />
+        </activity>
+
+        <provider
+            android:name="com.appsc.salmo23.figurinhas.StickerContentProvider"
+            android:authorities="${contentProviderAuthority1}"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.whatsapp.sticker.READ" />
+<activity
+            android:name="com.appsc.salmo23.novena.NovenaActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name="com.appsc.salmo23.novena.NovenaActivityProgresso"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name="com.appsc.salmo23.novena.NovenaActivityProgressoConcluidas"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name="com.appsc.salmo23.novena.DetalheDiaActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name="com.appsc.salmo23.biblia.NotificacaoVersciculo" android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
+        </activity>
+
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/notification_channel_id" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <service
+            android:name="com.appsc.salmo23.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!--NOVOS-->
+        <activity
+            android:name="com.appsc.salmo23.activities.AddToStickerPackActivity"
+            android:label="@string/Add_to_sticker_pack">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appsc.salmo23.Principal_Oracao" />
+        </activity>
+
+        <activity
+            android:name="com.appsc.salmo23.whatsapp_api.StickerPackDetailsActivity"
+            android:parentActivityName="com.appsc.salmo23.Principal_Oracao"
+            android:screenOrientation="portrait"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appsc.salmo23.Principal_Oracao" />
+        </activity>
+        <activity
+            android:name="com.appsc.salmo23.activities.RequestPermissionActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name="com.appsc.salmo23.whatsapp_api.StickerPackInfoActivity"
+            android:label="@string/title_activity_sticker_pack_info"
+            android:parentActivityName="com.appsc.salmo23.whatsapp_api.StickerPackDetailsActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.appsc.salmo23.whatsapp_api.StickerPackDetailsActivity" />
+        </activity>
+
+
+        <activity
+            android:name="com.appsc.salmo23.activities.NewStickerPackActivity"
+            android:label="@string/title_activity_new_sticker_pack"></activity>
+        <activity
+            android:name="com.appsc.salmo23.santos.Santos"
+            android:screenOrientation="portrait"
+            android:exported="true"></activity>
+
+
+        <activity android:name="com.appsc.salmo23.novos.Play"
+            android:screenOrientation="portrait" android:theme="@style/AppTheme"
+            android:exported="true">
+        </activity>
+        <activity android:name="com.appsc.salmo23.novos.PlayNotification"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
+
+        <provider
+            android:name="com.appsc.salmo23.whatsapp_api.StickerContentProvider2"
+            android:authorities="${contentProviderAuthority2}"
+            android:enabled="true"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:readPermission="com.whatsapp.sticker.READ"
+            android:writePermission="com.whatsapp.sticker.WRITE"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path"
+                tools:replace="android:resource" />
+        </provider>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:enabled="true"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+        </provider>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.appsc.salmo23.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <!--NOVOS-->
+
+    </application>
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+    </queries>
+</manifest>
